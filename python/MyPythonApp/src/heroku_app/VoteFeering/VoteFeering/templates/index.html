@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<head><meta charset="UTF-8"></head>
+<body>
+  <form method="post" action="/login">{% csrf_token %}
+    User ID: <input type="text" name="user_id" value=""/>
+    <br />
+    Password: <input type="password" name="password" value="" />
+    <br />
+    <input type="submit" value="login" />
+  </form>
+</body>
+</html>

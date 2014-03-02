@@ -1,0 +1,13 @@
+*.class
+*.txt
+*.db
+*.json
+
+# Package Files #
+*.jar
+.metadata
+.buildpath
+.project
+.settings/
+cache/
+logs/

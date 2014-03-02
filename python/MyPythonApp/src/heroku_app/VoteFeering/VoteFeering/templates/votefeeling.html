@@ -1,0 +1,30 @@
+<html>
+<head>
+	 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+     <title>vote</title>
+     <style>
+     
+     </style>
+</head>
+<body>
+<h1>Vote your feeling</h1>
+<p>以下にnail bookのユーザ投稿画像が表示されます。</br>
+<font  color="#ff0000"><b>手/足が写りこんでいる場合</b></font>は『手＋ネイルチップ』ボタンを押下して下さい。</br>
+<font  color="#ff0000"><b>手/足が写りこんでいない場合</b></font>は『ネイルチップのみ』ボタンを押下して下さい。
+</p>
+<form action="/votehome/" method="post" accept-charset="utf-8">{% csrf_token %}
+     <img src={{imname}} width="200" height="200" alt="nail_image" />
+     <table>
+          {{form1.as_table}}
+          <td colspan='2'>
+          	<input id="id" name="imname" value={{imname}} type="hidden" />
+          	<input type="submit" name="v1" value="手＋ネイルチップ"></br>
+          	</br>
+          	</br>
+          	</br>
+          	<input type="submit" name="v2" value="ネイルチップのみ">
+          </td>
+     </table>
+</form>
+</body>
+</html>
