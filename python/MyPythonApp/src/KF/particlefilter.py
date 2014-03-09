@@ -100,7 +100,7 @@ class ParticleFilter:
         self.predicted_value.append(predicted_value)
 
     def memorize_filtered_value(self, selected_idx, y):
-        filtered_value = sum(self.particles*self.weights[selected_idx])
+        filtered_value = sum(self.particles*self.weights[selected_idx])/sum(self.weights[selected_idx])
         self.filtered_value.append(filtered_value)
         self.calculate_LSM(y,filtered_value)
 
@@ -121,13 +121,13 @@ def get_slected_particles_idx((cum,p)):
     try:
         return np.where(cum>=p)[0][0]
     
-    except Exception:
+    except Exception, e:
         import sys
         import traceback
         sys.stderr.write(traceback.format_exc())    
 
 if __name__=='__main__':
-    pf = ParticleFilter(1000)
+    pf = ParticleFilter(3000)
     pf.init_praticles_distribution()
     
     data = np.hstack((norm.rvs(0,1,size=20),norm.rvs(2,1,size=60),norm.rvs(-1,0.5,size=20)))

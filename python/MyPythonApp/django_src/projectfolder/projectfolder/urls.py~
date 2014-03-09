@@ -1,0 +1,14 @@
+from django.conf.urls import patterns, include, url
+
+from django.contrib import admin
+admin.autodiscover()
+
+from projectfolder.pfol.views import *
+
+urlpatterns = patterns('',
+    # Examples:
+    # url(r'^$', 'projectfolder.views.home', name='home'),
+    # url(r'^blog/', inclede('blog.urls')),
+    url(r'd3/', 'd3_index'),
+    url(r'^admin/', include(admin.site.urls)),
+)
