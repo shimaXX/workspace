@@ -12,7 +12,7 @@ import scipy.stats.distributions as dis
 from scipy.stats import norm, chi2
 from scipy.linalg import inv,cholesky,det
 from math import exp, log, floor
-
+import matplotlib.pyplot as plt
 
 class HbBinLogit:
     nvar = 3 # ロジットモデルの説明変数の数
@@ -20,7 +20,7 @@ class HbBinLogit:
     nobs = 10 # 個人辺りの選択回数
     nz = 2 # 個人属性の説明変数の数（後ほど3に修正）
     
-    R = 12000
+    R = 1200
     sbeta = 0.2
     keep = 10
 
@@ -37,12 +37,13 @@ class HbBinLogit:
     Deltabar = np.zeros(nz*nvar).reshape( (nz,nvar) ) 
     
     # 結果格納用
-    Vbetadraw = np.zeros( (floor(R/keep),nvar, nvar ) )
-    betadraw = np.zeros((floor(R/keep),nhh,nvar))
-    Deltadraw = np.zeros( (floor(R/keep), nz, nvar ) )
+    range = floor(R/keep)
+    Vbetadraw = np.zeros( (range,nvar, nvar ) )
+    betadraw = np.zeros((range,nhh,nvar))
+    Deltadraw = np.zeros( (range, nz, nvar ) )
 
-    reject = np.zeros(floor(R/keep)) # サンプリング棄却率
-    llike = np.zeros(floor(R/keep)) # 対数尤度
+    reject = np.zeros(range) # サンプリング棄却率
+    llike = np.zeros(range) # 対数尤度
     
     def __init__(self):
         np.random.seed(555)
@@ -135,14 +136,13 @@ class HbBinLogit:
             
             # keep回ごとにサンプリング結果を保存
             mkeep = itr/self.keep
-            if itr % self.keep:
+            if itr % self.keep==0:
                 self.Deltadraw[mkeep,:,:] = self.oldDelta
                 self.Vbetadraw[mkeep,:,:] = self.oldVbeta
                 self.betadraw[mkeep,:,:] = self.oldbetas
                 self.llike[mkeep]=logl
                 self.reject[mkeep]=rej/self.nhh
-
-            print "likelihood",self.llike[mkeep]
+                print "likelihood",self.llike[mkeep]
 
     # 逆ウィッシャート関数の定義----------------------------------------------
     def invwishartrand_prec(self, nu,phi):
@@ -164,6 +164,26 @@ class HbBinLogit:
                     foo[i,j]  = normal(0,1)
         return np.dot(chol, np.dot(foo, np.dot(foo.T, chol.T)))
 
+
+
 if __name__=='__main__':
     c = HbBinLogit()
     c.predict()
+    
+    ran = range(int(c.range))
+    plt.plot(ran,c.llike,label=u"llike")
+    plt.show()
+
+    plt.plot(ran,c.reject,label=u"reject")
+    plt.show()
+
+    plt.plot(ran,c.Deltadraw[:,0,0],label=u"filtered data")
+    plt.plot(ran,c.Deltadraw[:,1,0],label=u"filtered data")
+    plt.plot(ran,c.Deltadraw[:,0,1],label=u"filtered data")
+    plt.plot(ran,c.Deltadraw[:,1,1],label=u"filtered data")
+    plt.plot(ran,c.Deltadraw[:,0,2],label=u"filtered data")
+    plt.plot(ran,c.Deltadraw[:,1,2],label=u"filtered data")    
+#     plt.xlabel('TIME',fontsize=18)
+#     plt.ylabel('Value',fontsize=18)    
+#     plt.legend() 
+    plt.show()
