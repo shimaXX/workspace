@@ -5,11 +5,6 @@ Created on 2012/12/17
 @author: n_shimada
 '''
 import AnomalyDetection
-reload(AnomalyDetection)
-
-#ARIMAモデルのパラメータの設定
-#TERM = 30
-#ORDER = [1, 1, 0]
 
 #input pathとDB名の定義
 input_filename = "C:/HadoopPig/workspace/HadoopPig/works/output/TEST/EvaSeq1209/part-r-00000"

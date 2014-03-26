@@ -20,7 +20,7 @@ class HbBinLogit:
     nobs = 10 # 個人辺りの選択回数
     nz = 2 # 個人属性の説明変数の数（後ほど3に修正）
     
-    R = 1200
+    R = 12000
     sbeta = 0.2
     keep = 10
 
@@ -103,7 +103,9 @@ class HbBinLogit:
                 alpha = np.exp( lognew + logknew - logold - logkold )
                 if alpha is None:
                     alpha = -1
-                u = uniform(1)
+                    
+                alpha = min(alpha,1)
+                u = uniform()
 
                 if u < alpha:
                     self.oldbetas[i,:] = self.betan
@@ -121,15 +123,15 @@ class HbBinLogit:
             Dtld = inv( Z2pA ) \
                     .dot( ZtZ.dot(Deltahat) + self.ADelta.dot(self.Deltabar) )
             Dvec = np.ndarray.flatten(Dtld)
-            Delta = multivariate_normal( Dvec, np.kron(self.Vbeta, inv(Z2pA)) )
-            self.oldDelta = Delta.reshape((self.nz, self.nvar))
+            Delta = multivariate_normal( Dvec, np.kron(self.oldVbeta, inv(Z2pA)) )
+            self.oldDelta = Delta.reshape((self.nz,self.nvar))
 
             # 逆ウィシャート分布のギブスサンプリング
             div = self.oldbetas.T - self.oldDelta.T.dot( self.Z )
             S = np.dot(div, div.T) # 上の計算でdivは横ベクトルになるのでSをスカラにするためにTは後ろ
             # 逆ウィッシャート分布でサンプリング
             self.oldVbeta = self.invwishartrand(self.nu + self.nhh, self.V + S)            
-            self.oldVbetai = inv(self.oldVbeta)  
+            self.oldVbetai = inv(self.oldVbeta)
 
             # サンプリング数の表示
             if itr % 100 == 0: print "iter:",itr
@@ -141,7 +143,7 @@ class HbBinLogit:
                 self.Vbetadraw[mkeep,:,:] = self.oldVbeta
                 self.betadraw[mkeep,:,:] = self.oldbetas
                 self.llike[mkeep]=logl
-                self.reject[mkeep]=rej/self.nhh
+                self.reject[mkeep]=float(rej)/self.nhh
                 print "likelihood",self.llike[mkeep]
 
     # 逆ウィッシャート関数の定義----------------------------------------------
@@ -176,14 +178,8 @@ if __name__=='__main__':
 
     plt.plot(ran,c.reject,label=u"reject")
     plt.show()
-
-    plt.plot(ran,c.Deltadraw[:,0,0],label=u"filtered data")
-    plt.plot(ran,c.Deltadraw[:,1,0],label=u"filtered data")
-    plt.plot(ran,c.Deltadraw[:,0,1],label=u"filtered data")
-    plt.plot(ran,c.Deltadraw[:,1,1],label=u"filtered data")
-    plt.plot(ran,c.Deltadraw[:,0,2],label=u"filtered data")
-    plt.plot(ran,c.Deltadraw[:,1,2],label=u"filtered data")    
-#     plt.xlabel('TIME',fontsize=18)
-#     plt.ylabel('Value',fontsize=18)    
-#     plt.legend() 
+    
+    for i in xrange(c.nz):
+        for j in xrange(c.nvar):
+            plt.plot(ran,c.Deltadraw[:,i,j],label=u"beta%d%d" % (i,j))
     plt.show()
