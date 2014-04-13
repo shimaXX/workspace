@@ -85,6 +85,7 @@ class Searcher:
             else: break
 #             res = str(tweet.id)+'\t'+str(tweet.user.screen_name)+'\t'+str(tweet.created_at)+'\t'+text
 #             fout.write(res + "\n")
+        time.sleep(10)
 
 class DBCreater:
     def __init__(self,dbname):
