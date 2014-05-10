@@ -1,0 +1,24 @@
+Pig Stack Trace
+---------------
+ERROR 2998: Unhandled internal error. org/python/core/PyObject
+
+java.lang.NoClassDefFoundError: org/python/core/PyObject
+	at org.apache.pig.scripting.jython.JythonScriptEngine.registerFunctions(JythonScriptEngine.java:343)
+	at org.apache.pig.PigServer.registerCode(PigServer.java:560)
+	at org.apache.pig.tools.grunt.GruntParser.processRegister(GruntParser.java:476)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:546)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:198)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:173)
+	at org.apache.pig.tools.grunt.Grunt.exec(Grunt.java:84)
+	at org.apache.pig.Main.run(Main.java:478)
+	at org.apache.pig.Main.main(Main.java:156)
+Caused by: java.lang.ClassNotFoundException: org.python.core.PyObject
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	... 9 more
+================================================================================

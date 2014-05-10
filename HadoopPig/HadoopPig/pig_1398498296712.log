@@ -1,0 +1,17 @@
+Pig Stack Trace
+---------------
+ERROR 1066: Unable to open iterator for alias Data
+
+org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1066: Unable to open iterator for alias Data
+	at org.apache.pig.PigServer.openIterator(PigServer.java:880)
+	at org.apache.pig.tools.grunt.GruntParser.processDump(GruntParser.java:774)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:372)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:198)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:173)
+	at org.apache.pig.tools.grunt.Grunt.exec(Grunt.java:84)
+	at org.apache.pig.Main.run(Main.java:478)
+	at org.apache.pig.Main.main(Main.java:156)
+Caused by: java.io.IOException: Job terminated with anomalous status FAILED
+	at org.apache.pig.PigServer.openIterator(PigServer.java:872)
+	... 7 more
+================================================================================

@@ -1,0 +1,40 @@
+Pig Stack Trace
+---------------
+ERROR 1000: 
+<file pigLatin/aatest.pig, line 9, column 26> Out of bound access. Trying to access non-existent column: 1. Schema f1:bytearray has 1 column(s).
+
+org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1066: Unable to open iterator for alias Data
+	at org.apache.pig.PigServer.openIterator(PigServer.java:880)
+	at org.apache.pig.tools.grunt.GruntParser.processDump(GruntParser.java:774)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:372)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:198)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:173)
+	at org.apache.pig.tools.grunt.Grunt.exec(Grunt.java:84)
+	at org.apache.pig.Main.run(Main.java:478)
+	at org.apache.pig.Main.main(Main.java:156)
+Caused by: org.apache.pig.PigException: ERROR 1002: Unable to store alias Data
+	at org.apache.pig.PigServer.storeEx(PigServer.java:982)
+	at org.apache.pig.PigServer.store(PigServer.java:942)
+	at org.apache.pig.PigServer.openIterator(PigServer.java:855)
+	... 7 more
+Caused by: org.apache.pig.impl.plan.PlanValidationException: ERROR 1000: 
+<file pigLatin/aatest.pig, line 9, column 26> Out of bound access. Trying to access non-existent column: 1. Schema f1:bytearray has 1 column(s).
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:197)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:76)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.PigServer$Graph.compile(PigServer.java:1716)
+	at org.apache.pig.PigServer$Graph.compile(PigServer.java:1708)
+	at org.apache.pig.PigServer$Graph.access$200(PigServer.java:1409)
+	at org.apache.pig.PigServer.storeEx(PigServer.java:977)
+	... 9 more
+================================================================================

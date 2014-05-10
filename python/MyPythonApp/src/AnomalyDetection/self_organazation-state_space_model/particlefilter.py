@@ -1,9 +1,5 @@
 # coding: utf-8
-'''
-Created on 2014/02/07
 
-@author: RN-017
-'''
 from math import log, pow, sqrt
 import numpy as np
 from scipy.stats import norm
@@ -18,7 +14,7 @@ class ParticleFilter:
     log_likelihood = 0.0 # 対数尤度
     LSM = 0.0 # ２乗誤差
     TIME = 1
-    PR=8 
+    PR=8 # unmber of processing
     
     def __init__(self, PARTICLES_NUM):
         self.PARTICLES_NUM = PARTICLES_NUM # 粒子の数
