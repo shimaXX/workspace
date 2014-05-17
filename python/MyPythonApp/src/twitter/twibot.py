@@ -31,7 +31,7 @@ Limit your searches to 10 keywords and operators
 import re
 import unicodedata
 import datetime, os
-import simplejson as json
+import json
 from tweepy.streaming import StreamListener, Stream
 from tweepy.auth import OAuthHandler
 from tweepy.api import API
