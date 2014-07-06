@@ -4,7 +4,7 @@ import sys, os
 sys.path.append(os.getcwd())
 import sqlite3 as sqlite
 
-import stock
+from stock import Stock
 
 class DataToStock:
     def __init__(self, data_dir, dbname, date_from=None, date_to=None):
@@ -25,7 +25,7 @@ class DataToStock:
             
             # check data exist
             if self.isavailable(code):
-                _stock = stock.Stock(code, 't', self.get_unit_nunber(code))
+                _stock = Stock(code, 't', self.get_unit_nunber(code))
                 self.add_price_data_from_db(_stock,code)
             self.dbclose()
         return _stock
@@ -44,8 +44,9 @@ class DataToStock:
         prices_list = self.get_prices_list(code)
         while 1:
             prices = prices_list.fetchone()
-            if prices == None: break
+            if prices is None: break
             _stock.add_price(prices)
+            _stock.prices.sort(key=lambda x:(x['date']))
 
     def get_prices_list(self, code):
         if self.date_from is not None and self.date_to is not None:
@@ -61,15 +62,28 @@ class DataToStock:
         else:
             prices_list = self.con.execute("select * from price_master \
                             where code='%s'" % code)
-            
         return prices_list
             
-    def each_stock(self, f_stock_list):
-        with open(f_stock_list, 'r') as f:
-            for line in f:
-                data = line.strip().split(',')
-                self.stocks[data[1]] = self.generate_stock(int(data[1]))
-            
+    def each_stock(self, filename=None):
+        if filename is not None:
+            print '===selected sebral stocks==='
+            with open(filename, 'r') as f:
+                for line in f:
+                    data = line.strip().split(',')
+                    print 'generate stock:', data[1]
+                    self.stocks[data[1]] = self.generate_stock(int(data[1]))
+            return self.stocks.values()
+        else:
+            print '===get every stock==='
+            db = sqlite.connect( self.data_dir+'brand_info.db' )
+            res = db.execute("select code from brand_info_master where enable=1")
+            while 1:
+                code = res.fetchone()
+                if code is None: break
+                print 'generate stock:', code[0]
+                self.stocks[str(code[0])] = self.generate_stock(code[0])
+            return self.stocks.values()
+    
 if __name__=='__main__':
     data_dir = os.getcwd()+'/../data'
     f_stock_list = 'tosho_stock_list.csv'

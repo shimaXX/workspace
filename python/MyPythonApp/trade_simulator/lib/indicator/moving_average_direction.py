@@ -13,8 +13,8 @@ class MovingAverageDirection:
         self.stock = stock
         self.window = window
         
-    def calcurate_indicatior(self, label):
-        prices = np.array(self.stock.get_data[label], dtype=np.float64)
+    def calculate_indicator(self, label):
+        prices = np.array(self.stock.get_data(label), dtype=np.float64)
         last = lambda x: x[-1]
         prices_last = pd.rolling_apply(prices, self.window, last)
         
@@ -26,8 +26,8 @@ class MovingAverageDirection:
         direction[direction<0]=-100
         
         res = direction.astype(str)
-        res[res=='100']='up'
-        res[res=='-100']='down'
-        res[res=='0']='flat'
-        
+        res[res=='100.0']='up'
+        res[res=='-100.0']='down'
+        res[res=='0.0']='flat'
+
         return res.tolist()

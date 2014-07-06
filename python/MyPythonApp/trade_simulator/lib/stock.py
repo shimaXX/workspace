@@ -2,13 +2,12 @@
 
 class Stock:
     """ this class make sense just stock """
-    prices = []
-    price_hash = {}
-    
     def __init__(self,code, market, unit):
         self.code = code
         self.market = market
         self.unit = unit # share unit number
+        self.prices = []
+        self.price_hash = {}
     
     def get_data(self, label):
         if label=='date': return self.dates()

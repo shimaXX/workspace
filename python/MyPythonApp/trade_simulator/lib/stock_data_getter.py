@@ -8,13 +8,13 @@ import os
 class StockDataGetter:
     data_dir = os.getcwd()+'/../data/'
        
-    def __init__(self, dbname):
+    def __init__(self, dbname, brand_info_db):
         dbpath = self.data_dir+dbname
         self.con = sqlite.connect( dbpath )
         self.con.text_factory = str
-
         if not self.isexist('price_master'):
             self.createtables()
+        self.brand_info_db = brand_info_db
 
     def __del__(self):
         self.con.close()
@@ -31,6 +31,7 @@ class StockDataGetter:
             print 'Ticker symbol:'+ str(code) + ' is ' + "updating data..."
             try:
                 self.update_price_data(q, code)
+                self.brand_info_db.execute("update brand_info_master set enable=1 where code=%s" % code)
             except Exception, e:
                 print "error:",e
                 self.get_histrical_data(q, code)
@@ -57,8 +58,10 @@ class StockDataGetter:
             prices_list = q.get_historical_prices(code, jsm.DAILY, all=True)
             self.addtoindex_prices(code, prices_list)
             self.addtoindex_finance(code, q.get_finance(code))
+            self.brand_info_db.execute("update brand_info_master set enable=1 where code=%s" % code)
         except Exception, e:
             print "error:", e
+            self.brand_info_db.execute("update brand_info_master set enable=0 where code=%s" % code)
     
     def get_latest_date(self, code):
         res = self.con.execute("select date from price_master where code='%s' \
@@ -135,12 +138,14 @@ class StockDataGetter:
         else: return False
         
 if __name__=='__main__':
-    sdg = StockDataGetter('daily_stock_data.db')
+    branddbname = os.getcwd()+'/../data/brand_info.db'
+    brand_info_db = sqlite.connect(branddbname)
+    sdg = StockDataGetter('daily_stock_data.db', brand_info_db)
     
-    brand_info_db = sqlite.connect(os.getcwd()+'/brand_info.db')
-    brands_info =  brand_info_db.execute("select code, market from brand_info_master")
+    brands_info =  brand_info_db.execute("select code, market from brand_info_master where enable=1")
     
     while 1:
         res = brands_info.fetchone()
         if res is None: break
         sdg.get_price_data(res[0]) # code
+        brand_info_db.commit()

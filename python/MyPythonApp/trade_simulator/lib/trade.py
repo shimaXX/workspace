@@ -10,12 +10,12 @@ class Trade:
     
     def __init__(self, params):
         """ 仕掛ける """
-        self.stock_code = params['stock_code']
-        self.trade_type = params['trade_type']
-        self.entry_date = params['entry_date']
-        self.entry_price = params['entry_price']
-        self.volume = params['volume'] # 購入株数
-        self.entry_time = params['entry_time'] # timeは寄り付き('open')、ザラ場中('in_session')、大引けの3区分('close')
+        self.stock_code = params['stock_code'] if 'stock_code' in params else None
+        self.trade_type = params['trade_type'] if 'trade_type' in params else None
+        self.entry_date = params['entry_date'] if 'entry_date' in params else None
+        self.entry_price = params['entry_price'] if 'entry_price' in params else None
+        self.volume = params['volume']  if 'volume' in params else None # 購入株数
+        self.entry_time = params['entry_time']  if 'entry_time' in params else None # timeは寄り付き('open')、ザラ場中('in_session')、大引けの3区分('close')
         self.length = 1 # 取引を仕掛けてからの日数
         
     def exit(self, params):
@@ -67,7 +67,7 @@ class Trade:
             return self.exit_price - self.entry_price
         elif self.trade_type == 'short':
             return self.entry_price - self.exit_price
-        
+                
 if __name__=='__main__':
     params = {'stock_code':1301, 'trade_type':'long', 'entry_date': '2011-11-14',
               'entry_price':251, 'entry_time':'open', 'volume':100}

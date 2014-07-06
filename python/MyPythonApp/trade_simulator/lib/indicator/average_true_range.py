@@ -33,15 +33,18 @@ class AverageTrueRange:
         true_low = map( (lambda x,y: min(x,y)), previous_close, current_low )
         true_ranges = np.array(true_high,dtype=np.float64) \
                         - np.array(true_low,dtype=np.float64)
-        
+                
         return pd.rolling_mean(true_ranges, self.window).tolist()
     
     
 if __name__=='__main__':
     data_dir = os.getcwd()+'/../../data'
     dbname = 'daily_stock_data.db'
-    dts = DataToStock(data_dir, dbname, '2005-01-01', '2013-01-01') #'2005-01-01', '2013-01-01'
-    stck = dts.generate_stock(1301)
     
+    print 'getting stock data'
+    dts = DataToStock(data_dir, dbname, '2013-01-01', '2013-05-01') #'2005-01-01', '2013-01-01'
+    stck = dts.generate_stock(8634)
+    
+    print 'got stock data'
     atr = AverageTrueRange(stck, 25)
     print atr.calculate_indicator()
