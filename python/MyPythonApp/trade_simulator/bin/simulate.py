@@ -21,28 +21,25 @@ from data_to_stock import DataToStock
 
 from estrangement_settings import get_params
 
-class CustomSimulation(Simulation):
-    date_from = None
-    date_to = None
-
-    def __init__(self, setting_file_name, sys_name, version, code=None):
-        self.setting_file_name = setting_file_name
+class CustomSimulation(Simulation): #Custom
+    def __init__(self, code=None):
         self.code = code
-        self.system_name = sys_name
-        self.version = version
         self.record_every_stock = False
         
     def setting(self, params, fname=None):
         """複数の株だけど、いくつかの株に絞ってシミュレーションする場合は
         _fnameにファイル名を指定
         """
-        simulation = Simulation(params)
-        if simulation.recorder is not None:
-            simulation.recorde_dir('result')
+        if 'from' in params:
+            self.set_date_from(params['from'])
+        if 'to' in params:
+            self.set_date_to(params['to'])
+        print 'from:', self.date_from
+        print 'to:', self.date_to
         if self.code is not None:
-            Simulation.simulate_a_stock(self, self.code) # privateメソッドのため、親クラスのメソッドを直接呼び出す
+            self.simulate_a_stock(self.code) # privateメソッドのため、親クラスのメソッドを直接呼び出す
         else:
-            Simulation.simulate_all_stocks(self, fname)
+            self.simulate_all_stocks(fname)
     
     def set_trading_system(self, params):
         self.trading_system = TradingSystem(params)
@@ -54,13 +51,13 @@ class CustomSimulation(Simulation):
         self.date_to = date
         
     def set_data_loader(self, data_loader):
-        self.data_loader = data_loader
+        Simulation.data_loader = data_loader
         
-    def set_record_dir(self, record_dir):
+    def set_record_dir(self, record_dir, setting_file_name, system_name, version):
         self.recorder = \
-            Recorder(os.path.join(record_dir,self.system_name,self.version))
+            Recorder(os.path.join(record_dir,system_name,version))
         self.recorder.create_record_folder()
-        self.recorder.record_setting(self.setting_file_name)
+        self.recorder.record_setting(setting_file_name)
         
     def set_record_every_stock(self, true_or_false):
         self.record_every_stock = true_or_false
@@ -93,13 +90,9 @@ if __name__=='__main__':
 
     sim_params = settings['simulation']
     if 'code' in sim_params or sim_params['code'] is not None:
-        sim = CustomSimulation(setting_f_name,
-                               sim_params['system_name'], sim_params['version'],
-                               sim_params['code'])
+        sim = CustomSimulation(sim_params['code'])
     else:
-        sim = CustomSimulation(setting_f_name,
-                               sim_params['system_name'], sim_params['version']
-                               )
+        sim = CustomSimulation()
     
     # set stock data
     data = DataToStock(data_dir, dbname)
@@ -110,8 +103,11 @@ if __name__=='__main__':
     sim.set_trading_system(t_sys_params)
 
     # set recorder
-    sim.set_record_dir(record_dir)
+    sim.set_record_dir(record_dir,
+                       setting_f_name,sim_params['system_name'],
+                       sim_params['version'])
     sim.set_record_every_stock(sim_params['every_rec']) # 全て記録するか
     
     # setting simulator
-    sim.setting(sim_params['params'], settings['trading_system']['stock_list']) #os.getcwd()+'/../data/test_stock.csv'
+    sim.setting(sim_params['params'],
+                settings['trading_system']['stock_list'])

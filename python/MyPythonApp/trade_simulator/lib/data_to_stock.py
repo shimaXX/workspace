@@ -48,7 +48,7 @@ class DataToStock:
             _stock.add_price(prices)
             _stock.prices.sort(key=lambda x:(x['date']))
 
-    def get_prices_list(self, code):
+    def get_prices_list(self, code):        
         if self.date_from is not None and self.date_to is not None:
             prices_list = self.con.execute("select * from price_master \
                         where date>='%s' and date<='%s' and code='%s'" % 

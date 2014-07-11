@@ -5,6 +5,10 @@ from recorder import Recorder
 
 class Simulation:
     data_loader = None
+    recorder = None
+    date_from = None
+    date_to = None
+    
     def __init__(self, params={}):
         self.trading_system = params['trading_system'] if 'trading_system' in params else None
         self.data_loader = params['data_loader'] if 'data_loader' in params else None
