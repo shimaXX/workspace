@@ -6,7 +6,7 @@ Created on 2014/01/15
 '''
 
 import numpy as np
-from numpy.random import multivariate_normal, randint, random, uniform
+from numpy.random import multivariate_normal, randint, random, uniform, shuffle
 import scipy as sp
 from math import pi, sqrt, exp, log, pow, isinf
 from numpy.linalg import det
@@ -27,8 +27,8 @@ def generate_data():
     cov = np.eye(sz)
     
     x1 = multivariate_normal(mu1, cov, 10000)
-    x2 = multivariate_normal(mu2, cov*0.2, 20000)
-    x3 = multivariate_normal(mu3, cov*0.3, 10000)
+    x2 = multivariate_normal(mu2, cov*20, 20000)
+    x3 = multivariate_normal(mu3, cov*100, 10000)
     
 #     return np.vstack((mu1,mu2,mu3))
     return np.vstack((x1,x2,x3))
@@ -45,7 +45,9 @@ class OnlineEM:
         #self.omega = np.array([float(1)/cluster_num]*cluster_num, dtype=np.float64) 
         self.omega = np.ones(cluster_num)
         
-        self.sx = np.ones((cluster_num,featdim), dtype=np.float64)
+        # sufficient statistics
+        self.sx0 = np.ones((cluster_num,featdim), dtype=np.float64)
+        self.sx1 = np.ones((cluster_num,featdim), dtype=np.float64)
         self.sx2 = np.ones((cluster_num,featdim), dtype=np.float64)
         
         # 学習係数の初期化
@@ -60,11 +62,13 @@ class OnlineEM:
 
     def init_beta(self,x):
         if self.t == 1:
-            self.sx = np.array( [x]*self.cluster_num )
+            self.sx1 = np.array( [x]*self.cluster_num )
             self.sx2 = np.array( [np.power(x,2)]*self.cluster_num )
     
-            for i in xrange(len(self.sx)):
-                self.sx[i] *= uniform(0,1,len(x))
+            print self.sx0
+            for i in xrange(len(self.sx0)):
+                self.sx0[i] *= uniform(0,1,len(x))
+                self.sx1[i] *= uniform(0,1,len(x))
                 self.sx2[i] *= uniform(0,1,len(x))
     
     def caluc_gamma(self):
@@ -117,10 +121,8 @@ class OnlineEM:
         """ クラスへの所属確率の算出と統計量の更新 """
         self.init_beta(x)
         self.caluc_gamma()
-        self.mv_norm(x, self.mu[0], self.sig[0])
-        psum = sum([self.omega[k]*self.mv_norm(x, self.mu[k], self.sig[k]) 
-                    for k in xrange(self.cluster_num)])
-#        psum = psum if psum!=0.0 else self.eps # zero割回避
+        #self.mv_norm(x, self.mu[0], self.sig[0])
+        psum = self.calculate_ptheta_denominator(x)
         
         for k in xrange(self.cluster_num):
             ptheta = self.omega[k]*self.mv_norm(x, self.mu[k], self.sig[k])/psum
@@ -129,23 +131,27 @@ class OnlineEM:
 #             print "ptheta:",ptheta
 #             print "ue",self.omega[k]*self.mv_norm(x, self.mu[k], self.sig[k])
 #             print "psum:",psum
+
             # 混合割合の算出(右辺がEstep, 右辺から左辺がMstep)
             self.omega[k] = (1-self.gamma)*self.omega[k] + self.gamma*ptheta
+            print "k=", k
             print "omega",self.omega[k]
         
             # 十分統計量の算出
-            ## 正規分布の十分統計量：Σx
-#            print "x:",x
+            #print "x:",x
 #            print "sx:",self.sx[k]
-            self.sx[k] = (1-self.gamma)*self.sx[k] + self.gamma*x*ptheta
 
+            ## 正規分布の十分統計量：Σ1
+            self.sx0[k] = (1-self.gamma)*self.sx0[k] + self.gamma*ptheta
+            ## 正規分布の十分統計量：Σx
+            self.sx1[k] = (1-self.gamma)*self.sx1[k] + self.gamma*x*ptheta
             ## 正規分布の十分統計量：Σx^2
             self.sx2[k] = (1-self.gamma)*self.sx2[k] + self.gamma*np.power(x,2)*ptheta 
     
-            mean = self.sx[k]
-            sig2 = self.sx2[k] - np.power(self.sx[k],2)            
+            mean = self.sx1[k]/self.sx0[k]
+            sig2 = self.sx2[k]/self.sx0[k] - np.power(self.sx1[k],2)
 #             mean = self.sx[k]
-#             sig2 = self.sx2[k]/self.omega[k] - np.power(self.sx[k]/self.omega[k],2)            
+#             sig2 = self.sx2[k]/self.omega[k] - np.power(self.sx[k]/self.omega[k],2)
     
     
     
@@ -153,12 +159,17 @@ class OnlineEM:
 #             print "sig2:",sig2
             self.mu[k] = mean/self.omega[k]
             self.sig[k] = sig2/self.omega[k]
-#             self.mu[k] = mean
-#            self.sig[k] = sig2
+            #self.mu[k] = mean
+            #self.sig[k] = sig2
             
 #             print "mu:",self.mu[k]
-            print "sig:",self.sig[k]
+            #print "sig:",self.sig[k]
         self.t += 1
+
+    def calculate_ptheta_denominator(self,x):
+        #psum = psum if psum!=0.0 else self.eps # zero割回避
+        return sum([self.omega[k]*self.mv_norm(x, self.mu[k], self.sig[k]) 
+                    for k in xrange(self.cluster_num)])
 
     def get_param(self):
         return self.omega, self.mu, self.sig
@@ -211,6 +222,7 @@ if __name__ == '__main__':
     alpha = 0.5
     
     data = generate_data()
+    shuffle( data )
     
     em = OnlineEM(clustdim,featdim,alpha)
     
