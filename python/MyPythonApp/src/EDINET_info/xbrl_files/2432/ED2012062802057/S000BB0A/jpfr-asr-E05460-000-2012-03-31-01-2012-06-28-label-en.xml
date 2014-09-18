@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Edited with XiRUTE .NET Library 01-04 -->
+<link:linkbase xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:link="http://www.xbrl.org/2003/linkbase">
+  <link:labelLink xlink:type="extended" xlink:role="http://www.xbrl.org/2003/role/link">
+    <link:label xml:lang="en" xlink:type="resource" xlink:label="jpfr-asr-E05460-000_BusinessConsignmentExpensesNOE_label_2" xlink:role="http://www.xbrl.org/2003/role/label">Business consignment expenses</link:label>
+    <link:label xml:lang="en" xlink:type="resource" xlink:label="jpfr-asr-E05460-000_DebtDisappearanceProfitDueToContractNOI_label" xlink:role="http://www.xbrl.org/2003/role/label">Debt disappearance profit due to contract</link:label>
+    <link:label xml:lang="en" xlink:type="resource" xlink:label="jpfr-asr-E05460-000_BusinessConsignmentExpensesNOE_label" xlink:role="http://www.xbrl.org/2003/role/documentation">Business consignment expenses-NOE</link:label>
+    <link:label xml:lang="en" xlink:type="resource" xlink:label="jpfr-asr-E05460-000_DebtDisappearanceProfitDueToContractNOI_label_2" xlink:role="http://www.xbrl.org/2003/role/documentation">Debt disappearance profit due to contract-NOI</link:label>
+    <link:label xml:lang="en" xlink:type="resource" xlink:label="jpfr-asr-E05460-000_BusinessConsignmentExpensesNOE_label_1" xlink:role="http://www.xbrl.org/2003/role/verboseLabel">Business consignment expenses-NOE</link:label>
+    <link:label xml:lang="en" xlink:type="resource" xlink:label="jpfr-asr-E05460-000_DebtDisappearanceProfitDueToContractNOI_label_1" xlink:role="http://www.xbrl.org/2003/role/verboseLabel">Debt disappearance profit due to contract-NOI</link:label>
+    <link:loc xlink:type="locator" xlink:href="jpfr-asr-E05460-000-2012-03-31-01-2012-06-28.xsd#jpfr-asr-E05460-000_DebtDisappearanceProfitDueToContractNOI" xlink:label="jpfr-asr-E05460-000_DebtDisappearanceProfitDueToContractNOI" />
+    <link:loc xlink:type="locator" xlink:href="jpfr-asr-E05460-000-2012-03-31-01-2012-06-28.xsd#jpfr-asr-E05460-000_BusinessConsignmentExpensesNOE" xlink:label="jpfr-asr-E05460-000_BusinessConsignmentExpensesNOE" />
+    <link:labelArc xlink:type="arc" xlink:from="jpfr-asr-E05460-000_BusinessConsignmentExpensesNOE" xlink:to="jpfr-asr-E05460-000_BusinessConsignmentExpensesNOE_label" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" order="1" />
+    <link:labelArc xlink:type="arc" xlink:from="jpfr-asr-E05460-000_DebtDisappearanceProfitDueToContractNOI" xlink:to="jpfr-asr-E05460-000_DebtDisappearanceProfitDueToContractNOI_label" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" order="1" />
+    <link:labelArc xlink:type="arc" xlink:from="jpfr-asr-E05460-000_BusinessConsignmentExpensesNOE" xlink:to="jpfr-asr-E05460-000_BusinessConsignmentExpensesNOE_label_1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" order="1" />
+    <link:labelArc xlink:type="arc" xlink:from="jpfr-asr-E05460-000_BusinessConsignmentExpensesNOE" xlink:to="jpfr-asr-E05460-000_BusinessConsignmentExpensesNOE_label_2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" order="1" />
+    <link:labelArc xlink:type="arc" xlink:from="jpfr-asr-E05460-000_DebtDisappearanceProfitDueToContractNOI" xlink:to="jpfr-asr-E05460-000_DebtDisappearanceProfitDueToContractNOI_label_1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" order="1" />
+    <link:labelArc xlink:type="arc" xlink:from="jpfr-asr-E05460-000_DebtDisappearanceProfitDueToContractNOI" xlink:to="jpfr-asr-E05460-000_DebtDisappearanceProfitDueToContractNOI_label_2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" order="1" />
+  </link:labelLink>
+</link:linkbase>

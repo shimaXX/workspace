@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Edited with XiRUTE .NET Library 01-04 -->
+<link:linkbase xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:link="http://www.xbrl.org/2003/linkbase">
+  <link:roleRef xlink:type="simple" xlink:href="http://info.edinet-fsa.go.jp/jp/fr/gaap/o/rt/2010-03-11/jpfr-rt-2010-03-11.xsd#RoleStatementsOfCashFlows" roleURI="http://info.edinet-fsa.go.jp/jp/fr/gaap/role/StatementsOfCashFlows" />
+  <link:definitionLink xlink:type="extended" xlink:role="http://info.edinet-fsa.go.jp/jp/fr/gaap/role/StatementsOfCashFlows">
+    <link:loc xlink:type="locator" xlink:href="jpfr-asr-E00012-000-2010-03-31-01-2010-06-25.xsd#jpfr-asr-E00012-000_DecreaseIncreaseInOtherInvestmentOpeCF" xlink:label="jpfr-asr-E00012-000_DecreaseIncreaseInOtherInvestmentOpeCF" />
+    <link:loc xlink:type="locator" xlink:href="http://info.edinet-fsa.go.jp/jp/fr/gaap/t/cte/2010-03-11/jpfr-t-cte-2010-03-11.xsd#jpfr-t-cte_NetCashProvidedByUsedInOperatingActivitiesAbstract" xlink:label="jpfr-t-cte_NetCashProvidedByUsedInOperatingActivitiesAbstract" />
+    <link:loc xlink:type="locator" xlink:href="jpfr-asr-E00012-000-2010-03-31-01-2010-06-25.xsd#jpfr-asr-E00012-000_DecreaseIncreaseInOtherReceivablesOpeCF" xlink:label="jpfr-asr-E00012-000_DecreaseIncreaseInOtherReceivablesOpeCF" />
+    <link:definitionArc xlink:type="arc" xlink:from="jpfr-t-cte_NetCashProvidedByUsedInOperatingActivitiesAbstract" xlink:to="jpfr-asr-E00012-000_DecreaseIncreaseInOtherReceivablesOpeCF" xlink:arcrole="http://www.xbrl.org/2003/arcrole/general-special" order="0.5" />
+    <link:definitionArc xlink:type="arc" xlink:from="jpfr-t-cte_NetCashProvidedByUsedInOperatingActivitiesAbstract" xlink:to="jpfr-asr-E00012-000_DecreaseIncreaseInOtherInvestmentOpeCF" xlink:arcrole="http://www.xbrl.org/2003/arcrole/general-special" order="0.75" />
+  </link:definitionLink>
+</link:linkbase>

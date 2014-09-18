@@ -1,0 +1,49 @@
+Backend error message during job submission
+-------------------------------------------
+java.io.IOException: Cannot run program "chmod": CreateProcess error=2, w肳ꂽt@
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:149)
+	at org.apache.hadoop.util.Shell.run(Shell.java:134)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:286)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:354)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:337)
+	at org.apache.hadoop.fs.RawLocalFileSystem.execCommand(RawLocalFileSystem.java:481)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:473)
+	at org.apache.hadoop.fs.FilterFileSystem.setPermission(FilterFileSystem.java:280)
+	at org.apache.hadoop.fs.FileSystem.mkdirs(FileSystem.java:266)
+	at org.apache.hadoop.mapred.JobClient.configureCommandLineOptions(JobClient.java:573)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:761)
+	at org.apache.hadoop.mapred.JobClient.submitJob(JobClient.java:730)
+	at org.apache.hadoop.mapred.jobcontrol.Job.submit(Job.java:378)
+	at org.apache.hadoop.mapred.jobcontrol.JobControl.startReadyJobs(JobControl.java:247)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.pig.backend.hadoop20.PigJobControl.mainLoopAction(PigJobControl.java:157)
+	at org.apache.pig.backend.hadoop20.PigJobControl.run(PigJobControl.java:134)
+	at java.lang.Thread.run(Unknown Source)
+	at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher$1.run(MapReduceLauncher.java:270)
+Caused by: java.io.IOException: CreateProcess error=2, w肳ꂽt@
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 23 more
+
+Pig Stack Trace
+---------------
+ERROR 1066: Unable to open iterator for alias x
+
+org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1066: Unable to open iterator for alias x
+	at org.apache.pig.PigServer.openIterator(PigServer.java:880)
+	at org.apache.pig.tools.grunt.GruntParser.processDump(GruntParser.java:774)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:372)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:198)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:173)
+	at org.apache.pig.tools.grunt.Grunt.exec(Grunt.java:84)
+	at org.apache.pig.Main.run(Main.java:478)
+	at org.apache.pig.Main.main(Main.java:156)
+Caused by: java.io.IOException: Job terminated with anomalous status FAILED
+	at org.apache.pig.PigServer.openIterator(PigServer.java:872)
+	... 7 more
+================================================================================
