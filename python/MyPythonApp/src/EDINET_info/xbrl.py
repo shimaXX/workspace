@@ -15,8 +15,8 @@ def soup_maker(fh):
     try:
         from bs4 import BeautifulSoup
         soup = BeautifulSoup(fh, "lxml")
-        for tag in soup.find_all():
-            tag.name = tag.name.lower()
+        #for tag in soup.find_all():
+        #    tag.name = tag.name.lower()
     except ImportError:
         from BeautifulSoup import BeautifulStoneSoup
         soup = BeautifulStoneSoup(fh)

@@ -1,0 +1,87 @@
+element_id,href,label_role,label_string,lang
+jpdei_cor_documentandentityinformationdeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_DocumentAndEntityInformationDEIAbstract,http://www.xbrl.org/2003/role/label,DEI,ja
+jpdei_cor_documentandentityinformationdeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_DocumentAndEntityInformationDEIAbstract,http://www.xbrl.org/2003/role/verboseLabel,DEI [タイトル項目],ja
+jpdei_cor_entityinformationdeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_EntityInformationDEIAbstract,http://www.xbrl.org/2003/role/label,提出者情報,ja
+jpdei_cor_entityinformationdeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_EntityInformationDEIAbstract,http://www.xbrl.org/2003/role/verboseLabel,提出者情報、DEI [タイトル項目],ja
+jpdei_cor_edinetcodedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_EDINETCodeDEI,http://www.xbrl.org/2003/role/label,EDINETコード,ja
+jpdei_cor_edinetcodedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_EDINETCodeDEI,http://www.xbrl.org/2003/role/verboseLabel,EDINETコード、DEI,ja
+jpdei_cor_fundcodedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_FundCodeDEI,http://www.xbrl.org/2003/role/label,ファンドコード,ja
+jpdei_cor_fundcodedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_FundCodeDEI,http://www.xbrl.org/2003/role/verboseLabel,ファンドコード、DEI,ja
+jpdei_cor_securitycodedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_SecurityCodeDEI,http://www.xbrl.org/2003/role/documentation,日本の証券取引所に上場する企業に対し「証券コード協議会」が付与するアラビア数字で構成される識別番号。該当する場合は、記載する。,ja
+jpdei_cor_securitycodedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_SecurityCodeDEI,http://www.xbrl.org/2003/role/label,証券コード,ja
+jpdei_cor_securitycodedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_SecurityCodeDEI,http://www.xbrl.org/2003/role/verboseLabel,証券コード、DEI,ja
+jpdei_cor_filernameinjapanesedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_FilerNameInJapaneseDEI,http://www.xbrl.org/2003/role/label,提出者名（日本語表記）,ja
+jpdei_cor_filernameinjapanesedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_FilerNameInJapaneseDEI,http://www.xbrl.org/2003/role/verboseLabel,提出者名（日本語表記）、DEI,ja
+jpdei_cor_filernameinenglishdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_FilerNameInEnglishDEI,http://www.xbrl.org/2003/role/label,提出者名（英語表記）,ja
+jpdei_cor_filernameinenglishdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_FilerNameInEnglishDEI,http://www.xbrl.org/2003/role/verboseLabel,提出者名（英語表記）、DEI,ja
+jpdei_cor_fundnameinjapanesedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_FundNameInJapaneseDEI,http://www.xbrl.org/2003/role/label,ファンド名称（日本語表記）,ja
+jpdei_cor_fundnameinjapanesedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_FundNameInJapaneseDEI,http://www.xbrl.org/2003/role/verboseLabel,ファンド名称（日本語表記）、DEI,ja
+jpdei_cor_fundnameinenglishdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_FundNameInEnglishDEI,http://www.xbrl.org/2003/role/label,ファンド名称（英語表記）,ja
+jpdei_cor_fundnameinenglishdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_FundNameInEnglishDEI,http://www.xbrl.org/2003/role/verboseLabel,ファンド名称（英語表記）、DEI,ja
+jpdei_cor_documentinformationdeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_DocumentInformationDEIAbstract,http://www.xbrl.org/2003/role/label,提出書類情報,ja
+jpdei_cor_documentinformationdeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_DocumentInformationDEIAbstract,http://www.xbrl.org/2003/role/verboseLabel,提出書類情報、DEI [タイトル項目],ja
+jpdei_cor_cabinetofficeordinancedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CabinetOfficeOrdinanceDEI,http://www.xbrl.org/2003/role/label,府令,ja
+jpdei_cor_cabinetofficeordinancedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CabinetOfficeOrdinanceDEI,http://www.xbrl.org/2003/role/verboseLabel,府令、DEI,ja
+jpdei_cor_documenttypedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_DocumentTypeDEI,http://www.xbrl.org/2003/role/documentation,大量保有報告書の第一号様式と第二号様式を併せて用いる場合は、"第一号及び第二号様式"と記載する。,ja
+jpdei_cor_documenttypedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_DocumentTypeDEI,http://www.xbrl.org/2003/role/label,様式,ja
+jpdei_cor_documenttypedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_DocumentTypeDEI,http://www.xbrl.org/2003/role/verboseLabel,様式、DEI,ja
+jpdei_cor_accountingstandardsdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_AccountingStandardsDEI,http://www.xbrl.org/2003/role/documentation,米国基準に基づき連結財務諸表を作成している場合、"US GAAP"。IFRSに基づき連結財務諸表又は財務諸表を作成する場合、"IFRS"。日本基準に基づく連結財務諸表及び財務諸表（連結財務諸表を作成しない場合は日本基準の財務諸表のみ。）を作成する場合、"Japan GAAP"。有価証券届出書、有価証券報告書、四半期報告書又は半期報告書以外の提出書類の場合及び経理の状況が記載されない場合は、nil。,ja
+jpdei_cor_accountingstandardsdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_AccountingStandardsDEI,http://www.xbrl.org/2003/role/label,会計基準,ja
+jpdei_cor_accountingstandardsdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_AccountingStandardsDEI,http://www.xbrl.org/2003/role/verboseLabel,会計基準、DEI,ja
+jpdei_cor_whetherconsolidatedfinancialstatementsareprepareddei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_WhetherConsolidatedFinancialStatementsArePreparedDEI,http://www.xbrl.org/2003/role/documentation,連結決算ありは"true"、連結決算なしは"false"。有価証券届出書、有価証券報告書、四半期報告書又は半期報告書以外の提出書類の場合及び経理の状況が記載されない場合は、nil。,ja
+jpdei_cor_whetherconsolidatedfinancialstatementsareprepareddei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_WhetherConsolidatedFinancialStatementsArePreparedDEI,http://www.xbrl.org/2003/role/label,連結決算の有無,ja
+jpdei_cor_whetherconsolidatedfinancialstatementsareprepareddei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_WhetherConsolidatedFinancialStatementsArePreparedDEI,http://www.xbrl.org/2003/role/verboseLabel,連結決算の有無、DEI,ja
+jpdei_cor_industrycodewhenconsolidatedfinancialstatementsarepreparedinaccordancewithindustryspecificregulationsdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_IndustryCodeWhenConsolidatedFinancialStatementsArePreparedInAccordanceWithIndustrySpecificRegulationsDEI,http://www.xbrl.org/2003/role/label,別記事業（連結）,ja
+jpdei_cor_industrycodewhenconsolidatedfinancialstatementsarepreparedinaccordancewithindustryspecificregulationsdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_IndustryCodeWhenConsolidatedFinancialStatementsArePreparedInAccordanceWithIndustrySpecificRegulationsDEI,http://www.xbrl.org/2003/role/verboseLabel,別記事業（連結）、DEI,ja
+jpdei_cor_industrycodewhenfinancialstatementsarepreparedinaccordancewithindustryspecificregulationsdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_IndustryCodeWhenFinancialStatementsArePreparedInAccordanceWithIndustrySpecificRegulationsDEI,http://www.xbrl.org/2003/role/label,別記事業（個別）,ja
+jpdei_cor_industrycodewhenfinancialstatementsarepreparedinaccordancewithindustryspecificregulationsdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_IndustryCodeWhenFinancialStatementsArePreparedInAccordanceWithIndustrySpecificRegulationsDEI,http://www.xbrl.org/2003/role/verboseLabel,別記事業（個別）、DEI,ja
+jpdei_cor_currentperioddeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CurrentPeriodDEIAbstract,http://www.xbrl.org/2003/role/label,当会計期間,ja
+jpdei_cor_currentperioddeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CurrentPeriodDEIAbstract,http://www.xbrl.org/2003/role/verboseLabel,当会計期間、DEI [タイトル項目],ja
+jpdei_cor_currentfiscalyearstartdatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CurrentFiscalYearStartDateDEI,http://www.xbrl.org/2003/role/documentation,XBRL対象の連結財務諸表又は財務諸表がある場合に記載する。,ja
+jpdei_cor_currentfiscalyearstartdatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CurrentFiscalYearStartDateDEI,http://www.xbrl.org/2003/role/label,当事業年度開始日,ja
+jpdei_cor_currentfiscalyearstartdatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CurrentFiscalYearStartDateDEI,http://www.xbrl.org/2003/role/verboseLabel,当事業年度開始日、DEI,ja
+jpdei_cor_currentperiodenddatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CurrentPeriodEndDateDEI,http://www.xbrl.org/2003/role/documentation,XBRL対象の連結財務諸表又は財務諸表がある場合に記載する。,ja
+jpdei_cor_currentperiodenddatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CurrentPeriodEndDateDEI,http://www.xbrl.org/2003/role/label,当会計期間終了日,ja
+jpdei_cor_currentperiodenddatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CurrentPeriodEndDateDEI,http://www.xbrl.org/2003/role/verboseLabel,当会計期間終了日、DEI,ja
+jpdei_cor_typeofcurrentperioddei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_TypeOfCurrentPeriodDEI,http://www.xbrl.org/2003/role/documentation,XBRL対象の連結財務諸表又は財務諸表がある場合に記載する。FY: 年度、HY: 中間期、Q1: 第1四半期、Q2:第2四半期、Q3: 第3四半期、Q4: 第4四半期、Q5: 第5四半期,ja
+jpdei_cor_typeofcurrentperioddei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_TypeOfCurrentPeriodDEI,http://www.xbrl.org/2003/role/label,当会計期間の種類,ja
+jpdei_cor_typeofcurrentperioddei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_TypeOfCurrentPeriodDEI,http://www.xbrl.org/2003/role/verboseLabel,当会計期間の種類、DEI,ja
+jpdei_cor_currentfiscalyearenddatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CurrentFiscalYearEndDateDEI,http://www.xbrl.org/2003/role/documentation,XBRL対象の連結財務諸表又は財務諸表がある場合に記載する。,ja
+jpdei_cor_currentfiscalyearenddatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CurrentFiscalYearEndDateDEI,http://www.xbrl.org/2003/role/label,当事業年度終了日,ja
+jpdei_cor_currentfiscalyearenddatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CurrentFiscalYearEndDateDEI,http://www.xbrl.org/2003/role/verboseLabel,当事業年度終了日、DEI,ja
+jpdei_cor_comparativeperioddeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_ComparativePeriodDEIAbstract,http://www.xbrl.org/2003/role/label,比較対象会計期間,ja
+jpdei_cor_comparativeperioddeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_ComparativePeriodDEIAbstract,http://www.xbrl.org/2003/role/verboseLabel,比較対象会計期間、DEI [タイトル項目],ja
+jpdei_cor_previousfiscalyearstartdatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_PreviousFiscalYearStartDateDEI,http://www.xbrl.org/2003/role/documentation,XBRL対象の連結財務諸表又は財務諸表がある場合に記載する。,ja
+jpdei_cor_previousfiscalyearstartdatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_PreviousFiscalYearStartDateDEI,http://www.xbrl.org/2003/role/label,前事業年度開始日,ja
+jpdei_cor_previousfiscalyearstartdatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_PreviousFiscalYearStartDateDEI,http://www.xbrl.org/2003/role/verboseLabel,前事業年度開始日、DEI,ja
+jpdei_cor_comparativeperiodenddatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_ComparativePeriodEndDateDEI,http://www.xbrl.org/2003/role/documentation,XBRL対象の連結財務諸表又は財務諸表がある場合に記載する。,ja
+jpdei_cor_comparativeperiodenddatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_ComparativePeriodEndDateDEI,http://www.xbrl.org/2003/role/label,比較対象会計期間終了日,ja
+jpdei_cor_comparativeperiodenddatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_ComparativePeriodEndDateDEI,http://www.xbrl.org/2003/role/verboseLabel,比較対象会計期間終了日、DEI,ja
+jpdei_cor_previousfiscalyearenddatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_PreviousFiscalYearEndDateDEI,http://www.xbrl.org/2003/role/documentation,XBRL対象の連結財務諸表又は財務諸表がある場合に記載する。当事業年度が設立初年度で、前事業年度が存在しない場合は、当事業年度開始日の前日を記載する。,ja
+jpdei_cor_previousfiscalyearenddatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_PreviousFiscalYearEndDateDEI,http://www.xbrl.org/2003/role/label,前事業年度終了日,ja
+jpdei_cor_previousfiscalyearenddatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_PreviousFiscalYearEndDateDEI,http://www.xbrl.org/2003/role/verboseLabel,前事業年度終了日、DEI,ja
+jpdei_cor_quarterlyorsemiannualperiodofnextfiscalyeardeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_QuarterlyOrSemiAnnualPeriodOfNextFiscalYearDEIAbstract,http://www.xbrl.org/2003/role/label,次の四半期又は中間期の会計期間,ja
+jpdei_cor_quarterlyorsemiannualperiodofnextfiscalyeardeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_QuarterlyOrSemiAnnualPeriodOfNextFiscalYearDEIAbstract,http://www.xbrl.org/2003/role/verboseLabel,次の四半期又は中間期の会計期間、DEI [タイトル項目],ja
+jpdei_cor_nextfiscalyearstartdatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_NextFiscalYearStartDateDEI,http://www.xbrl.org/2003/role/documentation,有価証券届出書において次の四半期又は中間期の連結貸借対照表等又は貸借対照表等がある場合に記載する。,ja
+jpdei_cor_nextfiscalyearstartdatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_NextFiscalYearStartDateDEI,http://www.xbrl.org/2003/role/label,次の事業年度開始日,ja
+jpdei_cor_nextfiscalyearstartdatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_NextFiscalYearStartDateDEI,http://www.xbrl.org/2003/role/verboseLabel,次の事業年度開始日、DEI,ja
+jpdei_cor_enddateofquarterlyorsemiannualperiodofnextfiscalyeardei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_EndDateOfQuarterlyOrSemiAnnualPeriodOfNextFiscalYearDEI,http://www.xbrl.org/2003/role/documentation,有価証券届出書において次の四半期又は中間期の連結貸借対照表等又は貸借対照表等がある場合に記載する。,ja
+jpdei_cor_enddateofquarterlyorsemiannualperiodofnextfiscalyeardei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_EndDateOfQuarterlyOrSemiAnnualPeriodOfNextFiscalYearDEI,http://www.xbrl.org/2003/role/label,次の四半期又は中間期の会計期間終了日,ja
+jpdei_cor_enddateofquarterlyorsemiannualperiodofnextfiscalyeardei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_EndDateOfQuarterlyOrSemiAnnualPeriodOfNextFiscalYearDEI,http://www.xbrl.org/2003/role/verboseLabel,次の四半期又は中間期の会計期間終了日、DEI,ja
+jpdei_cor_numberofsubmissiondei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_NumberOfSubmissionDEI,http://www.xbrl.org/2003/role/documentation,当初提出時は"1"、1回目の訂正は"2"、2回目以上の訂正は順次連番とする。,ja
+jpdei_cor_numberofsubmissiondei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_NumberOfSubmissionDEI,http://www.xbrl.org/2003/role/label,提出回数,ja
+jpdei_cor_numberofsubmissiondei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_NumberOfSubmissionDEI,http://www.xbrl.org/2003/role/verboseLabel,提出回数、DEI,ja
+jpdei_cor_amendmentflagdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_AmendmentFlagDEI,http://www.xbrl.org/2003/role/documentation,true：訂正提出時、false：当初提出時,ja
+jpdei_cor_amendmentflagdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_AmendmentFlagDEI,http://www.xbrl.org/2003/role/label,訂正の有無,ja
+jpdei_cor_amendmentflagdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_AmendmentFlagDEI,http://www.xbrl.org/2003/role/verboseLabel,訂正の有無、DEI,ja
+jpdei_cor_identificationofdocumentsubjecttoamendmentdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_IdentificationOfDocumentSubjectToAmendmentDEI,http://www.xbrl.org/2003/role/documentation,該当ある場合、訂正対象の当初提出書類の書類管理番号（EDINET提出時にEDINETにより付与される番号。）を記載する。,ja
+jpdei_cor_identificationofdocumentsubjecttoamendmentdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_IdentificationOfDocumentSubjectToAmendmentDEI,http://www.xbrl.org/2003/role/label,訂正対象書類の書類管理番号,ja
+jpdei_cor_identificationofdocumentsubjecttoamendmentdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_IdentificationOfDocumentSubjectToAmendmentDEI,http://www.xbrl.org/2003/role/verboseLabel,訂正対象書類の書類管理番号、DEI,ja
+jpdei_cor_typeofamendmentdeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_TypeOfAmendmentDEIAbstract,http://www.xbrl.org/2003/role/label,訂正の種類,ja
+jpdei_cor_typeofamendmentdeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_TypeOfAmendmentDEIAbstract,http://www.xbrl.org/2003/role/verboseLabel,訂正の種類、DEI [タイトル項目],ja
+jpdei_cor_reportamendmentflagdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_ReportAmendmentFlagDEI,http://www.xbrl.org/2003/role/documentation,true：記載事項を訂正する場合（添付書類のみの訂正及びXBRLを同時に訂正する場合を含む）、false：それ以外,ja
+jpdei_cor_reportamendmentflagdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_ReportAmendmentFlagDEI,http://www.xbrl.org/2003/role/label,記載事項訂正のフラグ,ja
+jpdei_cor_reportamendmentflagdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_ReportAmendmentFlagDEI,http://www.xbrl.org/2003/role/verboseLabel,記載事項訂正のフラグ、DEI,ja
+jpdei_cor_xbrlamendmentflagdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_XBRLAmendmentFlagDEI,http://www.xbrl.org/2003/role/documentation,true：記載事項を訂正せずXBRLのみを訂正する場合、false：それ以外,ja
+jpdei_cor_xbrlamendmentflagdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_XBRLAmendmentFlagDEI,http://www.xbrl.org/2003/role/label,XBRL訂正のフラグ,ja
+jpdei_cor_xbrlamendmentflagdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_XBRLAmendmentFlagDEI,http://www.xbrl.org/2003/role/verboseLabel,XBRL訂正のフラグ、DEI,ja
