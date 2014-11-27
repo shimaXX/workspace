@@ -8,12 +8,12 @@ import pandas as pd
 import urllib2
 
 
-class XbrlPerser(XBRLParser):
+class XbrlParser(XBRLParser):
     def __init__(self, xbrl_filename):
         self.xbrl_filename = xbrl_filename
         self.base_filename = xbrl_filename.replace('.xbrl','')
     
-    def perse(self,namespaces):
+    def parse_xbrl(self,namespaces):
         result = defaultdict(dict)
         result['facts']=self.get_facts_info()
         
@@ -34,6 +34,8 @@ class XbrlPerser(XBRLParser):
 
     def get_base_label_info(self,namespaces):
         base_file_path = os.getcwd()+'/base_labels/'
+        if not os.path.exists(base_file_path):
+            os.mkdir(base_file_path)
         base_labels = None
         
         # get common taxonomy
@@ -43,6 +45,7 @@ class XbrlPerser(XBRLParser):
             if os.path.exists(file_path):
                 tmp_base_labels = pd.read_csv(file_path)
             else:
+                print 'creating ', link_base, 'base label data...'
                 response = urllib2.urlopen(link_base)
                 html = response.read()
                 ET.register_namespace('','http://www.xbrl.org/2003/linkbase')
@@ -133,7 +136,7 @@ class XbrlPerser(XBRLParser):
                     label_role = label_node.attrib['{'+namespaces['xlink']+'}role']
                     href = loc_node.attrib['{'+namespaces['xlink']+'}href']
                     
-                    label_dict['element_id'].append( href.split('#')[1] )#.lower() )
+                    label_dict['element_id'].append( href.split('#')[1].lower() )
                     label_dict['label_string'].append( label_node.text)
                     label_dict['lang'].append( lang )
                     label_dict['label_role'].append( label_role )
@@ -163,13 +166,13 @@ class XbrlPerser(XBRLParser):
                         if '{'+namespaces['xlink']+'}href' in loc_node.attrib.keys():
                             href_str = loc_node.attrib['{'+namespaces['xlink']+'}href']
                             type_dict['from_href'].append( href_str )
-                            type_dict['from_element_id'].append( href_str.split('#')[1] )#.lower() )
+                            type_dict['from_element_id'].append( href_str.split('#')[1].lower() )
                             matches += 1
                     elif loc_label == type_arc_to:
                         if '{'+namespaces['xlink']+'}href' in loc_node.attrib.keys():
                             href_str = loc_node.attrib['{'+namespaces['xlink']+'}href']
                             type_dict['to_href'].append( href_str )
-                            type_dict['to_element_id'].append( href_str.split('#')[1] )#.lower() )
+                            type_dict['to_element_id'].append( href_str.split('#')[1].lower() )
                             matches += 1                    
                     if matches==2: break
                     
@@ -212,24 +215,33 @@ class XbrlPerser(XBRLParser):
      
     def gather_descendant(self,df,parent):
         children = df.to_element_id.ix[df.from_element_id==parent]
-        return ( children, children.apply(lambda x: self.gather_descendant(df, x)) )
-     
+        return children.append( children.apply(lambda x: self.gather_descendant(df, x)) )
+    
+    def get_specific_account_name_info(self,dat_fi,df_descendant):
+        result = None
+        for label_id in df_descendant.ix[:,0].values:
+            if result is None:
+                result = dat_fi.ix[dat_fi.element_id==label_id,:]
+            else:
+                result = result.append(dat_fi.ix[dat_fi.element_id==label_id,:], ignore_index=True)
+        return result
+        
 def main(namespaces):
     base_path = os.getcwd()+'/xbrl_files/1301/'
     _dir = 'ED2014062400389/S10025H8/XBRL/PublicDoc/'
     xbrl_filename = base_path+_dir+'jpcrp030000-asr-001_E00012-000_2014-03-31_01_2014-06-24.xbrl'
 
     # get data
-    xp = XbrlPerser(xbrl_filename)
+    xp = XbrlParser(xbrl_filename)
     
     print 'getting data...'
-    xbrl_persed = xp.perse(namespaces)
+    xbrl_persed = xp.parse_xbrl(namespaces)
     print 'done'
     
-    df_xbrl_facts = xbrl_persed['facts']
-    df_xbrl_labels = xbrl_persed['labels']
-    df_xbrl_presentation = xbrl_persed['presentation']
-    
+    df_xbrl_facts = xbrl_persed['facts'] # 金額の定義及び文書情報の定義情報
+    df_xbrl_labels = xbrl_persed['labels'] # 名称リンク情報
+    df_xbrl_presentation = xbrl_persed['presentation'] # 表示リンク情報
+
     # extract labels data
     df_xbrl_labels = xp.extract_target_data(df_xbrl_labels, lang='ja') 
                             #label_role='http://www.xbrl.org/2003/role/documentation')
@@ -237,25 +249,24 @@ def main(namespaces):
     
     # De-duplication of labels data
     df_xbrl_labels = df_xbrl_labels.drop_duplicates()
-    #print df_xbrl_labels
     
     dat_fi = pd.merge(df_xbrl_labels, df_xbrl_facts, on='element_id',how='inner')
-    print dat_fi
     
     # specify duration
-    dat_fi_cyc = dat_fi.ix[dat_fi.context_ref=='CurrentYearDuration']
-    #print dat_fi_cyc
-    #print df_xbrl_presentation
-    #print df_xbrl_labels.label_string
+    dat_fi_cyi = dat_fi.ix[dat_fi.context_ref=='CurrentYearInstant'] # 当期 時点
+    # 流動資産のelement_idのみ取得
     parent = df_xbrl_labels.element_id.ix[df_xbrl_labels.label_string.str.contains(
-                            ur'^流動資産$')].drop_duplicates()
-    print parent
-    parent = 'jppfs_cor_currentassets'
-    
-    df_xbrl_presentation.to_csv('presentation_test.csv')
-    df_xbrl_labels.to_csv('lavels_test.csv')
-    df_xbrl_ps_cyc = df_xbrl_presentation.ix[df_xbrl_presentation.role_id.str.contains('*/rol_ConsolidatedBalanceSheets$'),:]
-    xp.gather_descendant(df_xbrl_ps_cyc,parent)
+                            '^流動資産$')].drop_duplicates()
+    print '\n',parent,'\n' # 流動資産のelement_idを表示
+    # B/Sの流動資産に関する情報のみ取得
+    parent = 'jppfs_cor_currentassetsabstract'
+    df_xbrl_ps_cbs = df_xbrl_presentation.ix[df_xbrl_presentation.role_id.str.contains('rol_ConsolidatedBalanceSheet'),:]
+    # 再帰的に流動資産の子要素以下の要素を取得
+    df_descendant = xp.gather_descendant(df_xbrl_ps_cbs,parent).dropna() # delete nan
+    # 特定の勘定科目の情報のみ取得
+    df_fi_cyi_caa = xp.get_specific_account_name_info(dat_fi_cyi, df_descendant)
+    # ラベルと金額情報のみ表示
+    print df_fi_cyi_caa[['label_string','amount']].drop_duplicates()
     
 if __name__=='__main__':
     namespaces = {'link': 'http://www.xbrl.org/2003/linkbase',

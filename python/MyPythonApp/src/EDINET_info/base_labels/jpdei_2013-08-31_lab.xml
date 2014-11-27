@@ -22,13 +22,13 @@ jpdei_cor_documentinformationdeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_D
 jpdei_cor_documentinformationdeiabstract,../jpdei_cor_2013-08-31.xsd#jpdei_cor_DocumentInformationDEIAbstract,http://www.xbrl.org/2003/role/verboseLabel,提出書類情報、DEI [タイトル項目],ja
 jpdei_cor_cabinetofficeordinancedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CabinetOfficeOrdinanceDEI,http://www.xbrl.org/2003/role/label,府令,ja
 jpdei_cor_cabinetofficeordinancedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_CabinetOfficeOrdinanceDEI,http://www.xbrl.org/2003/role/verboseLabel,府令、DEI,ja
-jpdei_cor_documenttypedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_DocumentTypeDEI,http://www.xbrl.org/2003/role/documentation,大量保有報告書の第一号様式と第二号様式を併せて用いる場合は、"第一号及び第二号様式"と記載する。,ja
+jpdei_cor_documenttypedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_DocumentTypeDEI,http://www.xbrl.org/2003/role/documentation,"大量保有報告書の第一号様式と第二号様式を併せて用いる場合は、""第一号及び第二号様式""と記載する。",ja
 jpdei_cor_documenttypedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_DocumentTypeDEI,http://www.xbrl.org/2003/role/label,様式,ja
 jpdei_cor_documenttypedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_DocumentTypeDEI,http://www.xbrl.org/2003/role/verboseLabel,様式、DEI,ja
-jpdei_cor_accountingstandardsdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_AccountingStandardsDEI,http://www.xbrl.org/2003/role/documentation,米国基準に基づき連結財務諸表を作成している場合、"US GAAP"。IFRSに基づき連結財務諸表又は財務諸表を作成する場合、"IFRS"。日本基準に基づく連結財務諸表及び財務諸表（連結財務諸表を作成しない場合は日本基準の財務諸表のみ。）を作成する場合、"Japan GAAP"。有価証券届出書、有価証券報告書、四半期報告書又は半期報告書以外の提出書類の場合及び経理の状況が記載されない場合は、nil。,ja
+jpdei_cor_accountingstandardsdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_AccountingStandardsDEI,http://www.xbrl.org/2003/role/documentation,"米国基準に基づき連結財務諸表を作成している場合、""US GAAP""。IFRSに基づき連結財務諸表又は財務諸表を作成する場合、""IFRS""。日本基準に基づく連結財務諸表及び財務諸表（連結財務諸表を作成しない場合は日本基準の財務諸表のみ。）を作成する場合、""Japan GAAP""。有価証券届出書、有価証券報告書、四半期報告書又は半期報告書以外の提出書類の場合及び経理の状況が記載されない場合は、nil。",ja
 jpdei_cor_accountingstandardsdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_AccountingStandardsDEI,http://www.xbrl.org/2003/role/label,会計基準,ja
 jpdei_cor_accountingstandardsdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_AccountingStandardsDEI,http://www.xbrl.org/2003/role/verboseLabel,会計基準、DEI,ja
-jpdei_cor_whetherconsolidatedfinancialstatementsareprepareddei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_WhetherConsolidatedFinancialStatementsArePreparedDEI,http://www.xbrl.org/2003/role/documentation,連結決算ありは"true"、連結決算なしは"false"。有価証券届出書、有価証券報告書、四半期報告書又は半期報告書以外の提出書類の場合及び経理の状況が記載されない場合は、nil。,ja
+jpdei_cor_whetherconsolidatedfinancialstatementsareprepareddei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_WhetherConsolidatedFinancialStatementsArePreparedDEI,http://www.xbrl.org/2003/role/documentation,"連結決算ありは""true""、連結決算なしは""false""。有価証券届出書、有価証券報告書、四半期報告書又は半期報告書以外の提出書類の場合及び経理の状況が記載されない場合は、nil。",ja
 jpdei_cor_whetherconsolidatedfinancialstatementsareprepareddei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_WhetherConsolidatedFinancialStatementsArePreparedDEI,http://www.xbrl.org/2003/role/label,連結決算の有無,ja
 jpdei_cor_whetherconsolidatedfinancialstatementsareprepareddei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_WhetherConsolidatedFinancialStatementsArePreparedDEI,http://www.xbrl.org/2003/role/verboseLabel,連結決算の有無、DEI,ja
 jpdei_cor_industrycodewhenconsolidatedfinancialstatementsarepreparedinaccordancewithindustryspecificregulationsdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_IndustryCodeWhenConsolidatedFinancialStatementsArePreparedInAccordanceWithIndustrySpecificRegulationsDEI,http://www.xbrl.org/2003/role/label,別記事業（連結）,ja
@@ -68,7 +68,7 @@ jpdei_cor_nextfiscalyearstartdatedei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_NextF
 jpdei_cor_enddateofquarterlyorsemiannualperiodofnextfiscalyeardei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_EndDateOfQuarterlyOrSemiAnnualPeriodOfNextFiscalYearDEI,http://www.xbrl.org/2003/role/documentation,有価証券届出書において次の四半期又は中間期の連結貸借対照表等又は貸借対照表等がある場合に記載する。,ja
 jpdei_cor_enddateofquarterlyorsemiannualperiodofnextfiscalyeardei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_EndDateOfQuarterlyOrSemiAnnualPeriodOfNextFiscalYearDEI,http://www.xbrl.org/2003/role/label,次の四半期又は中間期の会計期間終了日,ja
 jpdei_cor_enddateofquarterlyorsemiannualperiodofnextfiscalyeardei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_EndDateOfQuarterlyOrSemiAnnualPeriodOfNextFiscalYearDEI,http://www.xbrl.org/2003/role/verboseLabel,次の四半期又は中間期の会計期間終了日、DEI,ja
-jpdei_cor_numberofsubmissiondei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_NumberOfSubmissionDEI,http://www.xbrl.org/2003/role/documentation,当初提出時は"1"、1回目の訂正は"2"、2回目以上の訂正は順次連番とする。,ja
+jpdei_cor_numberofsubmissiondei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_NumberOfSubmissionDEI,http://www.xbrl.org/2003/role/documentation,"当初提出時は""1""、1回目の訂正は""2""、2回目以上の訂正は順次連番とする。",ja
 jpdei_cor_numberofsubmissiondei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_NumberOfSubmissionDEI,http://www.xbrl.org/2003/role/label,提出回数,ja
 jpdei_cor_numberofsubmissiondei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_NumberOfSubmissionDEI,http://www.xbrl.org/2003/role/verboseLabel,提出回数、DEI,ja
 jpdei_cor_amendmentflagdei,../jpdei_cor_2013-08-31.xsd#jpdei_cor_AmendmentFlagDEI,http://www.xbrl.org/2003/role/documentation,true：訂正提出時、false：当初提出時,ja
